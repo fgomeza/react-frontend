@@ -24,10 +24,11 @@ export const GET_USERS_QUERY = gql(`
 export const LOGIN_MUTATION = gql(`
   mutation Login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
+      id,
       name,
       email,
-      verified
-      jwt
+      verified,
+      accessToken
     }
   }
 `);
@@ -35,10 +36,11 @@ export const LOGIN_MUTATION = gql(`
 export const CREATE_USER_MUTATION = gql(`
   mutation CreateUser($user: CreateUserInput) {
     createUser(user: $user) {
+      id,
       name,
       email,
-      verified
-      jwt
+      verified,
+      accessToken
     }
   }
 `);

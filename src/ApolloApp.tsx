@@ -10,7 +10,7 @@ import { setContext } from "@apollo/client/link/context";
 import { onError } from "@apollo/client/link/error";
 import { Outlet, useNavigate } from "react-router-dom";
 
-import { getJwt, logout } from "./utils/Auth";
+import { getAccessToken, logout } from "./utils/AuthHelper";
 
 export default function ApolloApp() {
   const navigate = useNavigate();
@@ -18,10 +18,11 @@ export default function ApolloApp() {
   const errorLink = onError(({ graphQLErrors }) => {
     if (graphQLErrors) {
       graphQLErrors.map((error) => {
-        alert(`Graphql Error ${error.message}`);
         if (error.extensions.code === "UNAUTHENTICATED") {
-          logout()
+          logout();
           navigate("/login");
+        } else {
+          alert(`Graphql Error ${error.message}`);
         }
       });
     }
@@ -33,7 +34,7 @@ export default function ApolloApp() {
   ]);
 
   const authLink = setContext((_, { headers }) => {
-    const token = getJwt();
+    const token = getAccessToken();
 
     return {
       headers: {

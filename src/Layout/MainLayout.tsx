@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 
-import { getUser } from "../utils/Auth";
+import { getUser } from "../utils/AuthHelper";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 

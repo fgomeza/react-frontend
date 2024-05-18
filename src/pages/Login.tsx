@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import BackgroundImage from "../assets/login-background.jpg";
 import { CREATE_USER_MUTATION, LOGIN_MUTATION } from "../queries/userQueries";
-import { getUser, saveUser } from "../utils/Auth";
+import { getUser, saveUser } from "../utils/AuthHelper";
 
 export default function Login() {
   const navigate = useNavigate();
