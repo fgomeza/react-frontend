@@ -59,17 +59,17 @@ export default function Login() {
 
   return (
     <div
-      className="h-screen grid grid-cols-1 gap-4"
+      className="tw-h-screen tw-grid tw-grid-cols-1 tw-gap-4"
       style={{
         backgroundImage: `url(${BackgroundImage})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "100% 100%",
       }}
     >
-      <div className="place-self-center card">
+      <div className="tw-place-self-center card">
         <div className="card-header">
           <ul className="nav nav-tabs card-header-tabs">
-            <li className="nav-item grow text-center hover:cursor-pointer">
+            <li className="nav-item grow text-center tw-cursor-pointer">
               <a
                 className={`nav-link ${activeCard === "login" && "active"}`}
                 onClick={() => setActiveCard("login")}
@@ -77,7 +77,7 @@ export default function Login() {
                 Login
               </a>
             </li>
-            <li className="nav-item grow text-center hover:cursor-pointer">
+            <li className="nav-item grow text-center tw-cursor-pointer">
               <a
                 className={`nav-link ${activeCard === "signup" && "active"}`}
                 onClick={() => setActiveCard("signup")}
@@ -114,8 +114,8 @@ export default function Login() {
                 onChange={(e) => setPassword(e.target.value)}
                 // onKeyUp={(e) => e.key === "Enter" && handleSubmitLogin()}
               />
-              <div className="mt-3 flex justify-between">
-                <a href="#" className="lh-lg">
+              <div className="mt-3 tw-flex tw-justify-between">
+                <a href="#" className="tw-lh-lg">
                   Forgot Password?
                 </a>
                 <button

@@ -1,4 +1,5 @@
 import { FocusEvent, Fragment, useState } from "react";
+import { isFunction } from "lodash";
 
 interface Props {
   items: ListItem[];
@@ -26,12 +27,12 @@ export default function ListGroup({
   let [editingTitle, setEditingTitle] = useState("");
 
   function addTaskSubmitted() {
-    taskTitle && typeof onAddTask === "function" && onAddTask(taskTitle);
+    taskTitle && isFunction(onAddTask) && onAddTask(taskTitle);
     setTaskTitle("");
   }
 
   async function updateClicked() {
-    if (editingIndex !== -1 && typeof onUpdateTask === "function") {
+    if (editingIndex !== -1 && isFunction(onUpdateTask)) {
       await onUpdateTask({
         display: editingTitle,
         key: items[editingIndex].key,
@@ -41,7 +42,7 @@ export default function ListGroup({
   }
 
   function deleteClicked(item: ListItem) {
-    typeof onDeleteTask === "function" && onDeleteTask(item);
+    typeof isFunction(onDeleteTask) && onDeleteTask(item);
   }
 
   function editClicked(index: number = -1, item: ListItem | null = null) {
@@ -61,9 +62,9 @@ export default function ListGroup({
   }
 
   return (
-    <div className="flex flex-col w-80">
-      <div className="flex w-full justify-between m-2">
-        <h1 className="text-green-600 text-3xl font-bold underline">
+    <div className="tw-flex tw-flex-col tw-w-80">
+      <div className="tw-flex tw-w-full tw-justify-between m-2">
+        <h1 className="tw-text-green-600 tw-text-3xl tw-font-bold tw-underline">
           {heading}
         </h1>
         <button
@@ -107,7 +108,7 @@ export default function ListGroup({
                   <input
                     autoFocus
                     type="text"
-                    className="grow px-3"
+                    className="tw-grow px-3"
                     value={editingTitle}
                     onChange={(e) => setEditingTitle(e.target.value)}
                     onBlur={() => editClicked()}
@@ -123,7 +124,7 @@ export default function ListGroup({
                 </div>
               </li>
             ) : (
-              <li className="list-group-item flex justify-between hover:bg-blue-50">
+              <li className="list-group-item tw-flex tw-justify-between hover:tw-bg-blue-50">
                 <span>
                   <input
                     className="form-check-input me-1"
@@ -135,11 +136,11 @@ export default function ListGroup({
                 </span>
                 <span>
                   <i
-                    className="bi bi-pencil mr-2 hover:cursor-pointer hover:text-blue-600"
+                    className="bi bi-pencil tw-mr-2 hover:tw-cursor-pointer hover:tw-text-blue-600"
                     onClick={() => editClicked(index, item)}
                   ></i>
                   <i
-                    className="bi bi-trash3 hover:cursor-pointer hover:text-red-600"
+                    className="bi bi-trash3 hover:tw-cursor-pointer hover:tw-text-red-600"
                     onClick={() => deleteClicked(item)}
                   ></i>
                 </span>

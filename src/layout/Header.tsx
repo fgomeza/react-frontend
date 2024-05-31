@@ -20,18 +20,18 @@ export default function Header() {
   return (
     <>
       <div className="m-1">
-        <div className="flex justify-between">
+        <div className="tw-flex tw-justify-between">
           <div></div>
-          <div className="flex">
-            <span className="my-auto mr-2">{username}</span>
+          <div className="tw-flex">
+            <span className="my-auto tw-mr-2">{username}</span>
             <div className="dropdown">
               <i
-                className="bi bi-person-circle text-4xl dropdown-toggle cursor-pointer after:hidden"
+                className="bi bi-person-circle tw-text-4xl dropdown-toggle tw-cursor-pointer after:tw-hidden"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               ></i>
               <div className="dropdown-menu">
-                <div className="grid grid-cols-1">
+                <div className="tw-grid tw-grid-cols-1">
                   <span className="mx-auto">{username}</span>
                   <button
                     type="button"
@@ -44,7 +44,7 @@ export default function Header() {
                 <ul>
                   <li>
                     <a
-                      className="dropdown-item cursor-pointer"
+                      className="dropdown-item tw-cursor-pointer"
                       onClick={handleLogout}
                     >
                       Logout

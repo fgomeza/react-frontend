@@ -9,7 +9,6 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { onError } from "@apollo/client/link/error";
 import { Outlet, useNavigate } from "react-router-dom";
-
 import { getAccessToken, logout } from "./utils/AuthHelper";
 
 export default function ApolloApp() {

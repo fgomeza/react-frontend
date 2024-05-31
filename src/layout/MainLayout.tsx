@@ -15,12 +15,12 @@ export default function MainLayout() {
   }, []);
 
   return (
-    <div className="h-screen flex">
-      <div className="card w-40 overflow-auto">
+    <div className="tw-h-screen tw-flex">
+      <div className="card tw-w-44 overflow-auto">
         <Sidebar />
       </div>
-      <div className="flex flex-col w-full overflow-auto">
-        <div className="relative card">
+      <div className="tw-flex tw-flex-col tw-w-full overflow-auto">
+        <div className="tw-relative card">
           <Header />
         </div>
         <div>

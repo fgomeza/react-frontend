@@ -52,24 +52,24 @@ export default function User() {
 
   return (
     <>
-      <div className="m-4 p-2 card w-96">
+      <div className="tw-m-4 p-2 card tw-w-96">
         <form onSubmit={handleSaveChanges}>
           <fieldset disabled={isLoading()}>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="tw-grid tw-grid-cols-2 tw-gap-2">
               <span>User Name</span>
               <input type="text" className="form-control" value={name} onChange={(e) => setName(e.target.value)}/>
               <span>User Email</span>
               <input type="text" className="form-control" value={email} onChange={(e) => setEmail(e.target.value)}/>
               <span>User Verified</span>
-              <span className="flex justify-around">
+              <span className="tw-flex tw-justify-around">
                 <span>{verifiedText(verified)}</span>
-                {verified && <i className="bi bi-check-circle-fill text-green-600 text-lg"></i>}
+                {verified && <i className="bi bi-check-circle-fill tw-text-green-600 tw-text-lg"></i>}
                 {!verified && <button type="button" className="btn btn-primary btn-sm">Verify</button>}
               </span>
               <button type="button" className="btn btn-primary">Change Password</button>
               <span></span>
             </div>
-            <div className="grid grid-cols-1 mt-4 mb-2 mx-8">
+            <div className="tw-grid tw-grid-cols-1 tw-mt-4 tw-mb-2 tw-mx-8">
               <button type="submit" className="btn btn-primary">Save</button>
             </div>
           </fieldset>
